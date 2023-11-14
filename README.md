@@ -1,2 +1,3 @@
 # Simple-Calculator-GUI-PY
-Simple Calculator Project 
+Simple Calculator Project with Python
+
