@@ -3,13 +3,13 @@ import tkinter as tk
 
 calculation = ""
 
-def add_too_calculation(symbol):
+def add_too_calculation(symbol):#operation mechanic
     global calculation
     calculation += str(symbol)
     text_result.delete(1.0,"end")
     text_result.insert(1.0,calculation)
 
-def evaluate_calculation():
+def evaluate_calculation():#calculation mechanic
     global calculation
     try:
         calculation = str(eval(calculation))
@@ -19,18 +19,21 @@ def evaluate_calculation():
         clear_field()
         text_result.insert(1.0,"Error")
 
-def clear_field():
+def clear_field():#clearing the window function
     global calculation
     calculation = ""
     text_result.delete(1.0,"end")
 
 
 root = tk.Tk()
-root.geometry("300x275")
+root.geometry("300x275")#window size
+
 
 text_result = tk.Text(root,height=2,width=16, font=("Arial", 24))
 text_result.grid(columnspan=5)
 
+
+#Buttons for the operations 
 btn_1 = tk.Button(root,text="1",command=lambda:add_too_calculation(1),width=5,font=("Arial", 14))
 btn_1.grid(row=2,column=1)
 
@@ -84,5 +87,6 @@ btn_equals.grid(row=6,column=3,columnspan=2)
 
 btn_clear = tk.Button(root,text="C",command=clear_field,width=11,font=("Arial", 14))
 btn_clear.grid(row=6,column=1,columnspan=2)
+
 
 root.mainloop()
